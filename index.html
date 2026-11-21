@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080202" />
+  <meta name="description" content="Une petite page d'amour dédiée à Emy." />
+  <title>Emy ♡ — Une histoire d'amour</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:wght@400;500;600;700&display=swap');
+    :root { --bg:#080202; --panel:rgba(15,5,6,.83); --red:#ff2848; --red2:#b90d2c; --text:#f8eeee; --muted:#c8b9bc; --line:rgba(255,45,73,.55); --glow:0 0 22px rgba(255,28,58,.25); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--text); background:var(--bg); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.15; z-index:-1; background:radial-gradient(circle at 20% 20%,#6d0719,transparent 36%),radial-gradient(circle at 80% 60%,#420511,transparent 38%); }
+    a { color:inherit; text-decoration:none; }
+    .topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:15px clamp(18px,5vw,64px); border-bottom:1px solid var(--line); background:rgba(5,1,2,.93); backdrop-filter:blur(14px); }
+    .brand { font-family:'Great Vibes',cursive; color:#ff5a72; font-size:36px; display:flex; align-items:center; gap:10px; white-space:nowrap; text-shadow:0 0 16px #e91b3c66; }
+    .brand-heart { font-family:sans-serif; font-size:32px; }
+    nav { display:flex; gap:clamp(12px,2.3vw,34px); align-items:center; justify-content:center; flex-wrap:wrap; }
+    nav a, .theme-btn { color:#e9dfe1; font-size:14px; transition:.2s; background:none; border:0; cursor:pointer; font-family:inherit; }
+    nav a:hover, .theme-btn:hover { color:var(--red); }
+    .love-btn, .cta { border:1px solid var(--red); background:#190609; color:#ff6278; padding:11px 19px; border-radius:30px; box-shadow:var(--glow); cursor:pointer; font:600 14px 'DM Sans',sans-serif; transition:transform .2s,background .2s; white-space:nowrap; }
+    .love-btn:hover,.cta:hover { transform:translateY(-2px); background:#310811; }
+    .hero { min-height:490px; position:relative; display:flex; align-items:center; padding:64px clamp(20px,9vw,130px); overflow:hidden; background:linear-gradient(90deg,rgba(4,0,1,.95) 0%,rgba(13,0,2,.78) 46%,rgba(10,0,1,.18) 100%), radial-gradient(ellipse at 72% 50%,#780c22 0%,#210308 46%,#080202 74%); }
+    .hero::after { content:"♡"; position:absolute; right:10%; top:4%; font-size:clamp(260px,40vw,490px); line-height:1; color:rgba(255,35,65,.075); text-shadow:0 0 65px rgba(255,0,40,.13); transform:rotate(-8deg); pointer-events:none; }
+    .hero-content { max-width:630px; z-index:1; }
+    .eyebrow { color:#ff6a7e; letter-spacing:4px; font-size:12px; text-transform:uppercase; }
+    h1 { font:clamp(86px,13vw,160px)/.95 'Great Vibes',cursive; color:#ff4d68; margin:16px 0 10px; text-shadow:0 0 32px #f21e4655; }
+    .subtitle { font:italic clamp(22px,3vw,34px) 'Georgia',serif; margin:0 0 20px; }
+    .intro { color:var(--muted); line-height:1.8; font-size:17px; max-width:480px; margin:0 0 28px; }
+    .cta { display:inline-flex; align-items:center; gap:9px; border-radius:12px; padding:14px 24px; }
+    .cards { display:grid; grid-template-columns:1.4fr 1fr 1.25fr; gap:20px; padding:24px clamp(14px,3vw,40px); }
+    .card { background:linear-gradient(145deg,rgba(19,5,7,.96),rgba(8,2,3,.96)); border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow:var(--glow); min-height:255px; }
+    .card h2 { color:#ff536b; font:30px 'Great Vibes',cursive; margin:0 0 16px; text-align:center; }
+    .card p { color:#e4d7d9; font-size:14px; line-height:1.85; }
+    .letter-row { display:flex; gap:16px; align-items:center; }
+    .mini-heart { flex:0 0 100px; font-size:70px; text-align:center; color:#ff3654; text-shadow:0 0 25px #ff264f; animation:pulse 2.6s infinite; }
+    .signature { font:28px 'Great Vibes',cursive; color:#ff536b; text-align:center; margin-top:12px; }
+    .reasons { list-style:none; padding:0; margin:0; }
+    .reasons li { margin:10px 0; color:#e4d7d9; font-size:14px; }
+    .reasons li::before { content:"♥"; color:#ff3654; margin-right:10px; }
+    .future { text-align:center; }
+    .future .divider-heart { color:#ff3654; font-size:28px; margin-top:14px; }
+    .section { padding:70px 20px; text-align:center; }
+    .section h2 { font:42px 'Great Vibes',cursive; color:#ff536b; margin:0 0 20px; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:1000px; margin:25px auto 0; gap:15px; }
+    .gallery-tile { border:1px solid var(--line); border-radius:18px; min-height:150px; display:grid; place-items:center; font-size:52px; background:radial-gradient(circle at 50% 30%,#470916,#100305 70%); box-shadow:var(--glow); }
+    .quote-box { max-width:700px; margin:auto; border:1px solid var(--line); border-radius:18px; padding:30px; background:var(--panel); box-shadow:var(--glow); }
+    #quote { font:italic 24px Georgia,serif; color:#f5dfe2; line-height:1.6; }
+    .footer { border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; color:#b9a8ad; font-size:13px; flex-wrap:wrap; }
+    .footer-brand { font:25px 'Great Vibes',cursive; color:#ff536b; }
+    .heart-line { color:#ff3654; font-size:25px; }
+    .modal { display:none; position:fixed; z-index:50; inset:0; background:#000c; backdrop-filter:blur(6px); padding:20px; place-items:center; }
+    .modal.open { display:grid; }
+    .modal-box { max-width:520px; width:100%; border:1px solid var(--red); background:#100406; border-radius:22px; padding:30px; box-shadow:0 0 45px #ff1c4230; text-align:center; }
+    .modal-box h2 { font:42px 'Great Vibes',cursive; color:#ff536b; margin:0 0 12px; }
+    .modal-box p { color:#e9dadd; line-height:1.85; }
+    .close { margin-top:12px; }
+    .floating-heart { position:fixed; z-index:60; pointer-events:none; color:#ff3454; font-size:24px; animation:floatUp 1.6s ease-out forwards; }
+    @keyframes floatUp { 0%{transform:translateY(0) scale(.7);opacity:1} 100%{transform:translateY(-190px) scale(1.5);opacity:0} }
+    @keyframes pulse { 50%{transform:scale(1.08); text-shadow:0 0 40px #ff264f} }
+    body.light { --bg:#fff5f6; --panel:#fff; --text:#321018; --muted:#755a60; --line:rgba(180,20,48,.4); background:#fff5f6; color:#321018; }
+    body.light .topbar { background:#fff9faeF; }
+    body.light .hero { background:linear-gradient(90deg,#fff0f3ee,#fff0f3bb),radial-gradient(ellipse at 72% 50%,#ffc1cf,#fff5f6); }
+    body.light .hero::after { color:#d7143c14; }
+    body.light .card { background:#fffafb; }
+    body.light .card p, body.light .reasons li { color:#55343c; }
+    body.light .gallery-tile { background:radial-gradient(circle at 50% 30%,#ffd5df,#fff5f6 70%); }
+    body.light .quote-box { background:#fff; }
+    body.light #quote { color:#51333a; }
+    body.light .footer { color:#755a60; }
+    body.light nav a, body.light .theme-btn { color:#4a2a33; }
+    @media(max-width:850px) { .topbar{flex-wrap:wrap;justify-content:center} nav{order:3;width:100%} .cards{grid-template-columns:1fr} .hero{min-height:440px} .gallery{grid-template-columns:1fr 1fr} }
+    @media(max-width:520px) { nav{gap:12px} nav a, .theme-btn{font-size:12px} .love-btn{padding:9px 13px} .hero{padding:48px 22px} .intro{font-size:15px} .letter-row{flex-direction:column;gap:0} .mini-heart{font-size:50px} .gallery{grid-template-columns:1fr} .footer{justify-content:center;text-align:center} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-heart">♡</span> Emy</a>
+    <nav aria-label="Navigation">
+      <a href="#home">⌂ Accueil</a><a href="#about">♡ À propos</a><a href="#gallery">▧ Galerie</a><a href="#message">✉ Message</a><a href="#quote-section">☆ Citation</a>
+      <button class="theme-btn" id="themeToggle" type="button">☾ Thème</button>
+    </nav>
+    <button class="love-btn" id="loveTop" type="button">♥ Je t'aime ♡</button>
+  </header>
+
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Un petit site, un grand sentiment</div>
+        <h1>Emy ♡</h1>
+        <p class="subtitle">Une histoire d'amour… pour toujours ♡</p>
+        <p class="intro">Dans un monde rempli de millions de personnes,<br>mon cœur a choisi toi, Emy. ♡</p>
+        <button class="cta" id="loveHero" type="button">♥ Je t'aime Emy ♡ <span>→</span></button>
+      </div>
+    </section>
+
+
+    <section class="cards" id="about">
+      <article class="card">
+        <h2>♡ Mon amour pour toi</h2>
+        <div class="letter-row"><div class="mini-heart">♡</div><p>Emy, tu rends ma vie plus belle, plus douce et plus heureuse. Chaque jour à tes côtés est un cadeau, et je veux parcourir ce chemin avec toi, main dans la main, pour toujours.</p></div>
+        <div class="signature">Je t'aime, Emy ♡</div>
+      </article>
+      <article class="card">
+        <h2>☆ Pourquoi toi ?</h2>
+        <ul class="reasons"><li>Ton sourire illumine ma vie</li><li>Ta gentillesse me touche</li><li>Ta présence me rassure</li><li>Tu rends les jours plus beaux</li><li>Ton amour me fait grandir</li></ul>
+        <div class="signature">Tout simplement… Toi ♡</div>
+      </article>
+      <article class="card future">
+        <h2>♧ Notre avenir</h2>
+        <p>Ensemble, nous irons plus loin, nous rêverons plus grand et nous écrirons notre histoire, remplie d'amour, de bonheur et de complicité.</p>
+        <div class="signature">Pour toujours ♡</div><div class="divider-heart">— ∞ —</div>
+      </article>
+    </section>
+
+
+    <section class="section" id="gallery">
+      <h2>Un monde rempli de douceur</h2>
+      <p style="color:var(--muted)">Quelques petits symboles pour représenter un grand amour.</p>
+      <div class="gallery"><div class="gallery-tile">🌹</div><div class="gallery-tile">💞</div><div class="gallery-tile">🌙</div><div class="gallery-tile">✨</div><div class="gallery-tile">💌</div><div class="gallery-tile">🫶</div></div>
+    </section>
+
+
+    <section class="section" id="message">
+      <h2>Un message pour Emy</h2>
+      <div class="quote-box"><p>« Si je pouvais choisir un endroit où être, ce serait toujours près de toi. »</p><button class="cta" id="openLetter" type="button">Ouvrir ma lettre ♡</button></div>
+    </section>
+
+    <section class="section" id="quote-section">
+      <h2>Une pensée pour toi</h2>
+      <div class="quote-box"><p id="quote">« Le plus beau voyage, c'est celui que l'on fait avec la personne que l'on aime. »</p><button class="cta" id="newQuote" type="button">Une autre citation ♡</button></div>
+    </section>
+  </main>
+
+
+  <footer class="footer"><span class="heart-line">〰♡〰</span><span><span class="footer-brand">Emy ♡</span> | Une seule personne, un amour infini… ♡</span><span>♡ &nbsp; ✨ &nbsp; ∞</span></footer>
+
+
+  <div class="modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+    <div class="modal-box"><h2 id="letterTitle">Pour toi, Emy ♡</h2><p>Il y a des personnes qui rendent le monde plus joli simplement en y étant. Tu es l'une de ces personnes. J'espère que cette petite page te fera sourire et te rappellera que tu es précieuse, que tu mérites toute la tendresse du monde, et que les plus beaux moments sont ceux qu'on partage avec le cœur. ♡</p><div class="signature">Avec toute ma tendresse ♡</div><button class="cta close" id="closeLetter" type="button">Fermer ♥</button></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('letterModal');
+    document.getElementById('openLetter').addEventListener('click', () => modal.classList.add('open'));
+    document.getElementById('closeLetter').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modal.classList.remove('open'); });
+    document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
+    const quotes = [
+      '« Le plus beau voyage, c\'est celui que l\'on fait avec la personne que l\'on aime. »',
+      '« Aimer, c\'est trouver dans le bonheur de l\'autre son propre bonheur. »',
+      '« Les petits gestes remplis d\'amour deviennent les plus grands souvenirs. »',
+      '« Peu importe le chemin, tant que nos cœurs avancent ensemble. »',
+      '« Parmi toutes les étoiles, mon regard revient toujours vers toi. »'
+    ];
+    let quoteIndex = 0;
+    document.getElementById('newQuote').addEventListener('click', () => { quoteIndex = (quoteIndex + 1) % quotes.length; document.getElementById('quote').textContent = quotes[quoteIndex]; });
+    function heartBurst(event) {
+      const x = event.clientX || window.innerWidth / 2, y = event.clientY || window.innerHeight / 2;
+      for (let i=0;i<8;i++) { const h=document.createElement('span'); h.className='floating-heart'; h.textContent=['♥','♡','💗'][i%3]; h.style.left=(x+(Math.random()*90-45))+'px'; h.style.top=(y+(Math.random()*30-15))+'px'; h.style.animationDelay=(Math.random()*0.3)+'s'; document.body.appendChild(h); setTimeout(()=>h.remove(),1900); }
+    }
+    document.getElementById('loveTop').addEventListener('click', heartBurst);
+    document.getElementById('loveHero').addEventListener('click', heartBurst);
+  </script>
+</body>
+</html>
